@@ -26,9 +26,9 @@ function Layout() {
           <span class='visually-hidden'>Icon-only</span>
         </a>
         <ul class='nav nav-pills nav-flush flex-column mb-auto text-center'>
-          <li class='nav-item'>
+          <li>
             <a
-              href='/#'
+              href='/home'
               class='nav-link active py-3 border-bottom'
               aria-current='page'
               title='Home'
@@ -40,46 +40,46 @@ function Layout() {
           </li>
           <li>
             <a
-              href='/#'
+              href='/#home'
               class='nav-link py-3 border-bottom'
-              title='Dashboard'
+              title='Home'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
             >
-              1
+              Home
             </a>
           </li>
           <li>
             <a
-              href='/#'
+              href='/about'
               class='nav-link py-3 border-bottom'
-              title='Orders'
+              title='About'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
             >
-              2
+              About
             </a>
           </li>
           <li>
             <a
-              href='/#'
+              href='/contact'
               class='nav-link py-3 border-bottom'
-              title='Products'
+              title='Contact'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
             >
-              3
+              Contact
             </a>
           </li>
           <li>
             <a
-              href='/#'
+              href='/nomatch'
               class='nav-link py-3 border-bottom'
-              title='Customers'
+              title='NoMatch'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
             >
-              4
+              No Match
             </a>
           </li>
         </ul>

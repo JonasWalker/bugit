@@ -8,5 +8,3 @@ export const Contact = () => (
     <p>P3</p>
   </div>
 )
-
-export default Contact
