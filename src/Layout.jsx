@@ -40,6 +40,7 @@ function Layout() {
           </li>
           <li>
             <a
+              // href points refer to the destination ex: www.abc.com/home   or.com/about
               href='/#home'
               class='nav-link py-3 border-bottom'
               title='Home'
