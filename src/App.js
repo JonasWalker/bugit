@@ -7,6 +7,7 @@ import { Contact } from './Contact'
 import { NoMatch } from './NoMatch'
 import { Component } from 'react'
 import { Login } from './Login'
+import { Signup } from './Signup'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path='login' element={<Login />} />
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path='signup' element={<Signup />} />
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />
           {/* destination not recognized ex: www.abc.com/home or.com/about */}

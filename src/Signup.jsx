@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const Login = () => (
+export const Signup = () => (
   <React.Fragment>
     <head>
       <meta name="theme-color" content="#7952b3"></meta>
