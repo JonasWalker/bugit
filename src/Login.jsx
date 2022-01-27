@@ -11,7 +11,7 @@ export const Login = () => (
         type='image/png'
       ></link>
     </head>
-    <body>
+    <body class='text-center'>
       <main class='form-signin'>
         <form>
           <img
