@@ -28,14 +28,14 @@ function Layout() {
         <ul class='nav nav-pills nav-flush flex-column mb-auto text-center'>
           <li>
             <a
-              href='/home'
+              href='/login'
               class='nav-link active py-3 border-bottom'
               aria-current='page'
-              title='Home'
+              title='login'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
             >
-              0
+              Login
             </a>
           </li>
           <li>

@@ -6,11 +6,13 @@ import { About } from './About'
 import { Contact } from './Contact'
 import { NoMatch } from './NoMatch'
 import { Component } from 'react'
+import { Login } from './Login'
 
 export default function App() {
   return (
     <div>
       <Routes>
+        <Route path='login' element={<Login />} />
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='about' element={<About />} />
