@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
-import { Login } from './Login'
-import "./sidebar.css"
+import './sidebar.css'
 
 import { BrowserRouter } from 'react-router-dom'
 
