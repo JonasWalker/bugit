@@ -77,44 +77,27 @@ export const Account = () => (
             />
           </div>
           <div class="col-md-2">
-            <label for="inputPhoneNumber" class="form-label">
-              Phone Number
+            <label for="inputState" class="form-label">
+              State
             </label>
-            <input
-              type="tel"
-              class="form-control"
-              id="inputPhoneNumber"
-              placeholder="(XXX)XXX-XXXX"
-            />
+            <select id="inputState" class="form-select">
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
           </div>
         </div>
-        <div class="col-md-4">
-          <label for="inputState" class="form-label">
-            State
-          </label>
-          <select id="inputState" class="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
-          </select>
-        </div>
-        <div class="col-md-2">
-          <label for="inputZip" class="form-label">
-            Zip
-          </label>
-          <input type="text" class="form-control" id="inputZip" />
-        </div>
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="gridCheck" />
-            <label class="form-check-label" for="gridCheck">
-              Check me out
+        <div class="row gy-5">
+          <div class="col-md-4">
+            <label for="inputZip" class="form-label">
+              Bio
             </label>
+            <input type="text" class="form-control" id="inputZip" />
           </div>
-        </div>
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">
-            Sign in
-          </button>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-primary">
+              Sign in
+            </button>
+          </div>
         </div>
       </form>
     </body>
