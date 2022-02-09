@@ -86,7 +86,7 @@ export const Account = () => (
             </select>
           </div>
         </div>
-        <div class="row gy-5">
+        <div>
           <div class="col-md-4">
             <label for="inputZip" class="form-label">
               Bio
