@@ -15,6 +15,10 @@ body {
   padding-bottom: 5px;
 }
 
+.BugItLogo {
+  padding-bottom: 5px;
+}
+
 .form-signin {
   width: 100%;
   max-width: 400px;
@@ -32,15 +36,13 @@ body {
 }
 
 .form-signin input[type='email'] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .form-signin input[type='password'] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .btn-primary,
