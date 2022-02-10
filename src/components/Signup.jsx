@@ -75,28 +75,6 @@ export const Signup = () => (
               placeholder='BugIt'
             />
           </div>
-          <div class='col-md-2'>
-            <label for='inputState' class='form-label'>
-              State
-            </label>
-            <select id='inputState' class='form-select'>
-              <option selected>Choose...</option>
-              <option>...</option>
-            </select>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-md-4'>
-            <label for='inputBio' class='form-label'>
-              Bio
-            </label>
-            <input type='text' class='form-control' id='inputBio' />
-          </div>
-          <div class='col-md-4'>
-            <button type='submit' class='btn btn-primary'>
-              Sign in
-            </button>
-          </div>
         </div>
       </form>
     </body>
