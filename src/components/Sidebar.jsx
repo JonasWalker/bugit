@@ -132,13 +132,13 @@ function Sidebar() {
           </li>
           <li>
             <a
-              href='/nomatch'
+              href='/account'
               class='nav-link py-3 border-bottom'
-              title='NoMatch'
+              title='Account'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
             >
-              No Match
+              Account
             </a>
           </li>
         </ul>
