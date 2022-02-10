@@ -1,53 +1,104 @@
 import React from 'react'
+import './Login.css'
 
 export const Signup = () => (
   <React.Fragment>
-    <head>
-      <meta name='theme-color' content='#7952b3'></meta>
-      <link href='signin.css' rel='stylesheet' />
-      <link
-        rel='icon'
-        href='/BugItLogo.png'
-        sizes='32x32'
-        type='image/png'
-      ></link>
-    </head>
+    <h1>Sign up</h1>
     <body class='text-center'>
-      <main class='form-signin'>
-        <form>
-          <img
-            rel='icon'
-            href='/scr/BugItLogo.png'
-            alt='bugitlogo'
-            sizes='16x16'
-            type='image/png'
-          ></img>
-          <h1 class='h3 mb-3 fw-normal'>Please Enter Your Info</h1>
-          <div class='form-floating'>
+      <img
+        class='BugItLogo'
+        src='/BugItLogo.jpg'
+        alt='BugItLogotest'
+        height='250'
+        width='350'
+      ></img>
+      {/* class="form-floating col row g-3" */}
+      <form class='row g-3'>
+        <div class='row'>
+          <div class='col-md-2'>
+            <label for='inputFirstName' class='form-label'>
+              First Name
+            </label>
+            <input
+              type='text'
+              class='form-control'
+              id='inputFirstName'
+              placeholder='John'
+            />
+          </div>
+          <div class='col-md-2'>
+            <label for='inputLastName' class='form-label'>
+              Last Name
+            </label>
+            <input
+              type='text'
+              class='form-control'
+              id='inputLastName'
+              placeholder='Doe'
+            />
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-2'>
+            <label for='inputEmail' class='form-label'>
+              Email
+            </label>
             <input
               type='email'
               class='form-control'
-              id='floatingInput'
+              id='inputAddress'
               placeholder='name@example.com'
-            ></input>
-            <label for='floatingInput'>Email address</label>
+            />
           </div>
-
-          <div class='form-floating'>
+          <div class='col-md-2'>
+            <label for='inputPhoneNumber' class='form-label'>
+              Phone Number
+            </label>
             <input
-              type='password'
+              type='text'
               class='form-control'
-              id='floatingPassword'
-              placeholder='Password'
-            ></input>
-            <label for='floatingPassword'>Password</label>
+              id='inputPhoneNumber'
+              placeholder='(XXX)XXX-XXXX'
+              pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}'
+            />
           </div>
-          <a href='/#home' class='w-100 btn btn-lg btn-primary' type='submit'>
-            Sign Up
-          </a>
-          <p class='mt-5 mb-3 text-muted'>&copy; 2022</p>
-        </form>
-      </main>
+        </div>
+        <div class='row'>
+          <div class='col-md-2'>
+            <label for='inputCompany' class='form-label'>
+              Company
+            </label>
+            <input
+              type='text'
+              class='form-control'
+              id='inputCompany'
+              placeholder='BugIt'
+            />
+          </div>
+          <div class='col-md-2'>
+            <label for='inputState' class='form-label'>
+              State
+            </label>
+            <select id='inputState' class='form-select'>
+              <option selected>Choose...</option>
+              <option>...</option>
+            </select>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>
+            <label for='inputBio' class='form-label'>
+              Bio
+            </label>
+            <input type='text' class='form-control' id='inputBio' />
+          </div>
+          <div class='col-md-4'>
+            <button type='submit' class='btn btn-primary'>
+              Sign in
+            </button>
+          </div>
+        </div>
+      </form>
     </body>
   </React.Fragment>
 )
