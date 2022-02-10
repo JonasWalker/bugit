@@ -16,15 +16,6 @@ function Sidebar() {
         class='d-flex flex-column flex-shrink-0 bg-light'
         style={{ float: 'left' }}
       >
-        <a
-          href='/#'
-          class='d-block p-3 link-dark text-decoration-none'
-          title='Icon-only'
-          data-bs-toggle='tooltip'
-          data-bs-placement='right'
-        >
-          <span class='visually-hidden'>Icon-only</span>
-        </a>
         <ul class='nav nav-pills nav-flush flex-column mb-auto text-center'>
           <li>
             <a

@@ -28,6 +28,14 @@ main {
     inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
 }
 
+/* .btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.nav-link {
+  background-color: #4abdac !important;
+} */
+
 .bi {
   vertical-align: -0.125em;
   pointer-events: none;
@@ -39,7 +47,9 @@ main {
 }
 
 .nav-flush .nav-link {
-  border-radius: 0;
+  border-radius: 0px;
+  background-color: #4abdac !important;
+  color: #ffffff;
 }
 
 .btn-toggle {

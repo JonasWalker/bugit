@@ -25,7 +25,7 @@
 }
 
 .App-link {
-  color: #0026fb;
+  color: #000107;
 }
 
 @keyframes App-logo-spin {
@@ -35,4 +35,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #4abdac !important;
 }
