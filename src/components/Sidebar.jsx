@@ -82,20 +82,16 @@ function Sidebar() {
               title='NoMatch'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
-            >
-              No Match
-            </a>
+            ></a>
           </li>
           <li>
             <a
-              href='/account'
+              href='/nomatch'
               class='nav-link py-3 border-bottom'
-              title='Account'
+              title='nomatch'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
-            >
-              Account
-            </a>
+            ></a>
           </li>
           <li>
             <a
@@ -104,9 +100,7 @@ function Sidebar() {
               title='NoMatch'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
-            >
-              No Match
-            </a>
+            ></a>
           </li>
           <li>
             <a
@@ -115,9 +109,7 @@ function Sidebar() {
               title='NoMatch'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
-            >
-              No Match
-            </a>
+            ></a>
           </li>
           <li>
             <a
@@ -126,9 +118,7 @@ function Sidebar() {
               title='NoMatch'
               data-bs-toggle='tooltip'
               data-bs-placement='right'
-            >
-              No Match
-            </a>
+            ></a>
           </li>
           <li>
             <a
