@@ -1,8 +1,8 @@
 import React from 'react';
-import './Signup.css';
+import './CreateAccount.css';
 import BugItLogo from './BugItLogo.jpg';
 
-export const Signup = () => (
+export const CreateAccount = () => (
   <React.Fragment>
     <body>
       <div class="container">

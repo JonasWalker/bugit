@@ -22,19 +22,19 @@ export const Login = () => (
                 <input
                   type="email"
                   class="form-control"
-                  id="floatingInput"
+                  id="emailInput"
                   placeholder="name@example.com"
                 ></input>
-                <label for="floatingInput">Email address</label>
+                <label for="emailInput">Email address</label>
               </div>
               <div class="form-floating">
                 <input
                   type="password"
                   class="form-control"
-                  id="floatingPassword"
+                  id="passwordInput"
                   placeholder="Password"
                 ></input>
-                <label for="floatingPassword">Password</label>
+                <label for="passwordInput">Password</label>
               </div>
               <div class="form-check">
                 <input
@@ -58,7 +58,7 @@ export const Login = () => (
               <div>
                 <label class="signuplabel">Dont Have an Account?</label>
                 <a
-                  href="/signup"
+                  href="/createAccount"
                   class="w-100 btn btn-md btn-primary"
                   type="submit"
                 >

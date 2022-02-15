@@ -7,7 +7,7 @@ import { Contact } from './components/Contact'
 import { NoMatch } from './components/NoMatch'
 import { Component } from 'react'
 import { Login } from './components/Login'
-import { Signup } from './components/Signup'
+import { CreateAccount } from './components/CreateAccount'
 import { Account } from './components/Account'
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
     <div>
       <Routes>
         <Route path='login' element={<Login />} />
-        <Route path='signup' element={<Signup />} />
+        <Route path='createAccount' element={<CreateAccount />} />
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='about' element={<About />} />
