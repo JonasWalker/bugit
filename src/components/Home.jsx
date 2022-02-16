@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'
+import BugItLogo from './images/BugItLogo.jpg'
 
 export const Home = () => (
   <div>
@@ -7,4 +8,4 @@ export const Home = () => (
     <p>P2</p>
     <p>P3</p>
   </div>
-);
+)

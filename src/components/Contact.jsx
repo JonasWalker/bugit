@@ -1,4 +1,5 @@
 import React from 'react'
+import BugItLogo from './images/BugItLogo.jpg'
 
 export const Contact = () => (
   <div>
