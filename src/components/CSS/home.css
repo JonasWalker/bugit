@@ -1,4 +1,6 @@
 body {
+  /* padding-top: 0%; */
+  /* margin-top: -4%; */
   font-size: 0.875rem;
 }
 
@@ -22,13 +24,18 @@ body {
   /* rtl:remove */
   left: 0;
   z-index: 100; /* Behind the navbar */
-  padding: 48px 0 0; /* Height of navbar */
+  padding: 0;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
-  /* width: 100px; */
+  width: 100px;
 }
 
-.bottomAccount {
-  bottom: 0;
+/* .row {
+  margin: 0px;
+  padding: 0px;
+
+} */
+.table {
+  --bs-table-striped-bg: #4abdac83; /*striped color*/
 }
 
 @media (max-width: 767.98px) {
