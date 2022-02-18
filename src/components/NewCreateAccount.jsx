@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import BugItLogo from './images/BugItLogo.jpg'
 import axios from 'axios'
+import './CSS/CreateAccount.css'
 
 function NewCreateAccount(props) {
   const [data, setdata] = useState({
@@ -88,18 +89,18 @@ function NewCreateAccount(props) {
                       />
                     </div>
                   </div>
-                  <div class='col-sm-6'>
-                    <input
-                      type='text'
-                      name='FirstName'
-                      onChange={onChange}
-                      value={data.FirstName}
-                      class='form-control'
-                      id='exampleFirstName'
-                      placeholder='First name'
-                    />
-                  </div>
                   <div class='form-group row'>
+                    <div class='col-sm-6'>
+                      <input
+                        type='text'
+                        name='FirstName'
+                        onChange={onChange}
+                        value={data.FirstName}
+                        class='form-control'
+                        id='exampleFirstName'
+                        placeholder='First Name'
+                      />
+                    </div>
                     <div class='col-sm-6'>
                       <input
                         type='text'
@@ -111,6 +112,8 @@ function NewCreateAccount(props) {
                         placeholder='Last Name'
                       />
                     </div>
+                  </div>
+                  <div class='form-group row'>
                     <div class='col-sm-6'>
                       <input
                         type='text'
@@ -120,6 +123,17 @@ function NewCreateAccount(props) {
                         class='form-control'
                         id='examplePhoneNumber'
                         placeholder='Phone Number'
+                      />
+                    </div>
+                    <div class='col-sm-6'>
+                      <input
+                        type='text'
+                        name='test'
+                        onChange={onChange}
+                        /*value={data.PhoneNumber}*/
+                        class='form-control'
+                        id='test'
+                        placeholder='test'
                       />
                     </div>
                     <div class='col-sm-6'>
