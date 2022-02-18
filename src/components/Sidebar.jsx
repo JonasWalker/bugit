@@ -79,13 +79,14 @@ export const Sidebar = () => (
             </li>
             <li>
               <a
-                href='/nomatch'
-                class='nav-link py-3 border-bottom'
-                title='NoMatch'
+                href='/newCreateAccount'
+                class='nav-link active py-3 border-bottom'
+                aria-current='page'
+                title='signup'
                 data-bs-toggle='tooltip'
                 data-bs-placement='right'
               >
-                {' '}
+                New Sign up
               </a>
             </li>
             <li>

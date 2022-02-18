@@ -68,7 +68,6 @@ function addBug() {
   }
   document.getElementById('myTable').insertRow(newBug)
   bugsInfo.push(newBug)
-  renderBug(bugsInfo)
   document.getElementById('myTbody').insertRow(newBug)
   renderBug(bugsInfo)
   console.log(bugsInfo)
@@ -77,7 +76,9 @@ function addBug() {
 
 function deleteBug() {
   console.log('deleted bug')
+  bugsInfo.pop()
   document.getElementById('myTable').deleteRow(1)
+  console.log(bugsInfo)
   return
 }
 
