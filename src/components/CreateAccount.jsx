@@ -1,95 +1,154 @@
-import React from 'react'
-import './CSS/CreateAccount.css'
-import BugItLogo from './images/BugItLogo.jpg'
+import React, { useState } from 'react'
+import axios from 'axios'
 
-export const CreateAccount = () => (
-  <React.Fragment>
-    <body>
-      <div class='container'>
-        <main class='form-signup'>
-          {/* class="form-floating col row g-3" */}
-          <div class='col'>
-            {/* <div class="col-md-7 col-lg-8"> */}
-            <form>
-              <div class='row g-3'>
-                <img
-                  class='logo'
-                  rel='icon'
-                  src={BugItLogo}
-                  alt='Logo'
-                  width='100px'
-                  height='100px'
-                />
-                <div class='col-6'>
-                  <label for='inputFirstName' class='form-label'>
-                    First Name
-                  </label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    id='inputFirstName'
-                    placeholder='John'
-                  />
-                </div>
-                <div class='col-6'>
-                  <label for='inputLastName' class='form-label'>
-                    Last Name
-                  </label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    id='inputLastName'
-                    placeholder='Doe'
-                  />
-                </div>
-                <div class='col-12'>
-                  <label for='inputEmail' class='form-label'>
-                    Email
-                  </label>
-                  <input
-                    type='email'
-                    class='form-control'
-                    id='inputAddress'
-                    placeholder='name@example.com'
-                  />
-                </div>
-                <div class='col-12'>
-                  <label for='inputPhoneNumber' class='form-label'>
-                    Phone Number
-                  </label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    id='inputPhoneNumber'
-                    placeholder='(XXX)XXX-XXXX'
-                    pattern='[0-9]{3}-[0-9]{2}-[0-9]{3}'
-                  />
-                </div>
-                <div class='col-12'>
-                  <label for='inputCompany' class='form-label'>
-                    Company
-                  </label>
-                  <input
-                    type='text'
-                    class='form-control'
-                    id='inputCompany'
-                    placeholder='BugIt'
-                  />
-                </div>
-                <div class='col text-center'>
-                  <a
-                    href='/#home'
-                    class='w-50 btn btn-md btn-primary'
-                    type='submit'
-                  >
-                    Sign Up
-                  </a>
-                </div>
-              </div>
-            </form>
-          </div>
-        </main>
+function CreateAccount(props) {
+  const [data, setdata] = useState({
+    Email: '',
+    Password: '',
+    FirstName: '',
+    LastName: '',
+    PhoneNumber: '',
+    Hardware: '',
+    Role: '',
+  })
+  const apiUrl = 'http://localhost:1680/api/employee/InsertEmployee'
+  const Registration = (e) => {
+    e.preventDefault()
+    debugger
+    const data1 = {
+      Email: data.Email,
+      Password: data.Password,
+      FirstName: data.FirstName,
+      LastName: data.LastName,
+      PhoneNumber: data.PhoneNumber,
+      Hardware: data.Hardware,
+      Role: data.Role,
+    }
+    axios.post(apiUrl, data1).then((result) => {
+      debugger
+      console.log(result.data)
+      if (result.data.Status == 'Invalid') alert('Invalid User')
+      else props.history.push('/Dashboard')
+    })
+  }
+  const onChange = (e) => {
+    e.persist()
+    debugger
+    setdata({ ...data, [e.target.name]: e.target.value })
+  }
+  return (
+    <div class='container'>
+      <div class='row'>
+        <div class='col-sm-12 btn btn-primary' style={{ margin: '6px' }}>
+          Add New Contact
+        </div>
       </div>
-    </body>
-  </React.Fragment>
-)
+      <div
+        class='card o-hidden border-0 shadow-lg my-5'
+        style={{ marginTop: '5rem!important;' }}
+      >
+        <div class='card-body p-0'>
+          <div class='row'>
+            <div class='col-lg-12'>
+              <div class='p-5'>
+                <div class='text-center'>
+                  <h1 class='h4 text-gray-900 mb-4'>Create a New User</h1>
+                </div>
+                <form onSubmit={Registration} class='user'>
+                  <div class='form-group row'>
+                    <div class='col-sm-6 mb-3 mb-sm-0'>
+                      <input
+                        type='text'
+                        name='Email'
+                        onChange={onChange}
+                        value={data.Email}
+                        class='form-control'
+                        id='exampleEmail'
+                        placeholder='Email'
+                      />
+                    </div>
+                    <div class='col-sm-6'>
+                      <input
+                        type='Password'
+                        name='Password'
+                        onChange={onChange}
+                        value={data.Password}
+                        class='form-control'
+                        id='examplePassword'
+                        placeholder='Password'
+                      />
+                    </div>
+                  </div>
+                  <div class='col-sm-6'>
+                    <input
+                      type='text'
+                      name='FirstName'
+                      onChange={onChange}
+                      value={data.FirstName}
+                      class='form-control'
+                      id='exampleFirstName'
+                      placeholder='First name'
+                    />
+                  </div>
+                  <div class='form-group row'>
+                    <div class='col-sm-6'>
+                      <input
+                        type='text'
+                        name='LastName'
+                        onChange={onChange}
+                        value={data.LastName}
+                        class='form-control'
+                        id='exampleLastName'
+                        placeholder='Last Name'
+                      />
+                    </div>
+                    <div class='col-sm-6'>
+                      <input
+                        type='text'
+                        name='PhoneNumber'
+                        onChange={onChange}
+                        value={data.PhoneNumber}
+                        class='form-control'
+                        id='examplePhoneNumber'
+                        placeholder='Phone Number'
+                      />
+                    </div>
+                    <div class='col-sm-6'>
+                      <input
+                        type='text'
+                        name='Hardware'
+                        onChange={onChange}
+                        value={data.Hardware}
+                        class='form-control'
+                        id='exampleHardware'
+                        placeholder='Hardware'
+                      />
+                    </div>
+                    <div class='col-sm-6'>
+                      <input
+                        type='text'
+                        name='Role'
+                        onChange={onChange}
+                        value={data.Role}
+                        class='form-control'
+                        id='exampleRole'
+                        placeholder='Role'
+                      />
+                    </div>
+                  </div>
+                  <button type='submit' class='btn btn-primary  btn-block'>
+                    Create User
+                  </button>
+                  <hr />
+                </form>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default CreateAccount

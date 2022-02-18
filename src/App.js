@@ -7,7 +7,7 @@ import { Contact } from './components/Contact'
 import { NoMatch } from './components/NoMatch'
 import { Component } from 'react'
 import { Login } from './components/Login'
-import { CreateAccount } from './components/CreateAccount'
+import CreateAccount from './components/CreateAccount'
 import { Account } from './components/Account'
 
 export default function App() {
