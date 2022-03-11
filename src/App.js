@@ -1,7 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
 import { Sidebar } from './components/Sidebar'
-import { Home } from './components/Home'
+import  Home  from './components/Home'
+import  TestHome  from './components/testHome'
 import { About } from './components/About'
 import { Contact } from './components/Contact'
 import { NoMatch } from './components/NoMatch'
@@ -19,7 +20,7 @@ export default function App() {
         <Route path='createAccount' element={<CreateAccount />} />
         <Route path='newCreateAccount' element={<NewCreateAccount />} />
         <Route path='/' element={<Sidebar />}>
-          <Route index element={<Home />} />
+          <Route index element={<TestHome />} />
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />
           <Route path='account' element={<Account />} />
