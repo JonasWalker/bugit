@@ -111,8 +111,9 @@ const Home = (props) => {
             <div className="form-group row">
               <div className="col-sm-6 mb-3 mb-sm-0">
                 <input
+                  id="ownerField"
                   type="text"
-                  //value={modalInfo.name}
+                  defaultValue={modalInfo.name}
                   required
                   className="form-control"
                   placeholder="Owner"
@@ -121,7 +122,7 @@ const Home = (props) => {
               <div className="col-sm-6">
                 <input
                   type="date"
-                  value={modalInfo.date}
+                  defaultValue={modalInfo.date}
                   required
                   className="form-control"
                   placeholder="Todays date"
@@ -132,14 +133,14 @@ const Home = (props) => {
               <div className="col-sm-6 ">
                 <Select
                   options={typeOptions}
-                  value={autoPopulateTypeOptions(modalInfo.type)}
+                  defaultValue={autoPopulateTypeOptions(modalInfo.type)}
                   placeholder="Set Type"
                 />
               </div>
               <div className="col-sm-6 ">
                 <Select
                   options={statusOptions}
-                  //value={autoPopulateStatusOptions(modalInfo.status)}
+                  defaultValue={autoPopulateStatusOptions(modalInfo.status)}
                   placeholder="Set status"
                 />
               </div>
@@ -148,25 +149,26 @@ const Home = (props) => {
               <div className="col-sm-6">
                 <Select
                   options={priorityOptions}
-                  // value={autoPopulatePriority(modalInfo.priority)}
+                  defaultValue={autoPopulatePriority(modalInfo.priority)}
                   placeholder="Set Priority"
                 />
               </div>
               <div className="col-sm-6">
                 <input
                   type="text"
-                  value={modalInfo.estimatedTime}
+                  defaultValue={modalInfo.estimatedTime}
                   required
                   className="form-control"
                   placeholder="Estimated Time"
                 />
               </div>
               <div className="col-sm-12">
-                <input
+                <textArea
                   type="text"
                   required
                   className="form-control text-center"
                   placeholder="Bug description"
+                  rows={3}
                 />
               </div>
             </div>
@@ -267,8 +269,8 @@ const Home = (props) => {
         keyField="id"
         data={data}
         columns={columns}
-        // expandRow={expandRow}
-        defaultSorted={defaultSorted}
+        //expandRow={expandRow}
+        //defaultSorted={defaultSorted}
         pagination={paginationFactory(options)}
         rowEvents={rowEvents}
       />
