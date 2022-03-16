@@ -45,6 +45,20 @@ const Home = (props) => {
     { label: 'Stuck', value: 'stuck' },
   ];
 
+  function autoPopulatePriority(priority) {
+    console.log(priority);
+    for (let i = 0; i < priorityOptions.length; i++) {
+      if (priorityOptions[i].value === priority) return priorityOptions[i];
+    }
+  }
+
+  function autoTypeOptions(type) {
+    console.log(type);
+    for (let i = 0; i < typeOptions.length; i++) {
+      if (typeOptions[i].value === type) return typeOptions[i];
+    }
+  }
+
   // const ModalContent = () => {
   //   return (
   //     <Modal show={show} onHide={handleClose}>
@@ -84,6 +98,7 @@ const Home = (props) => {
               <div className="col-sm-6 mb-3 mb-sm-0">
                 <input
                   type="text"
+                  value={modalInfo.name}
                   required
                   className="form-control"
                   placeholder="Owner"
@@ -92,6 +107,7 @@ const Home = (props) => {
               <div className="col-sm-6">
                 <input
                   type="date"
+                  value={modalInfo.date}
                   required
                   className="form-control"
                   placeholder="Todays date"
@@ -100,19 +116,32 @@ const Home = (props) => {
             </div>
             <div className="form-group row">
               <div className="col-sm-6 ">
-                <Select options={typeOptions} placeholder="Set Type" />
+                <Select
+                  options={typeOptions}
+                  value={autoTypeOptions(modalInfo.type)}
+                  placeholder="Set Type"
+                />
               </div>
               <div className="col-sm-6 ">
-                <Select options={statusOptions} placeholder="Set status" />
+                <Select
+                  options={statusOptions}
+                  value={modalInfo.status}
+                  placeholder="Set status"
+                />
               </div>
             </div>
             <div className="form-group row">
               <div className="col-sm-6">
-                <Select options={priorityOptions} placeholder="Set Priority" />
+                <Select
+                  options={priorityOptions}
+                  value={autoPopulatePriority(modalInfo.priority)}
+                  placeholder="Set Priority"
+                />
               </div>
               <div className="col-sm-6">
                 <input
                   type="text"
+                  value={modalInfo.estimatedTime}
                   required
                   className="form-control"
                   placeholder="Estimated Time"
@@ -127,17 +156,12 @@ const Home = (props) => {
                 />
               </div>
             </div>
-            <div className="row justify-content-center">
-              <button
-                className="text-center btn btn-md btn-primary"
-                type="submit"
-              >
-                Create Bug
-              </button>
-            </div>
           </form>
         </Modal.Body>
         <Modal.Footer>
+          <Button variant="primary" onClick={handleClose}>
+            Save
+          </Button>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>

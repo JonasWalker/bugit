@@ -3,10 +3,10 @@
         "id": "1",
       "software": "Bugit",
       "name": "Jonas",
-      "date": "never",
-      "type": "Optimize",
+      "date": "03/06/2022",
+      "type": "optimize",
       "status": "In Progress",
-      "priority": "Low",
+      "priority": "low",
       "estimatedTime": "trust"
     },
     {
@@ -14,9 +14,9 @@
       "software": "BugIt",
       "name": "Hunter",
       "date": "never",
-      "type": "Optimize",
+      "type": "crash",
       "status": "In Progress",
-      "priority": "Low",
+      "priority": "moderate",
       "estimatedTime": "trust"
     },
     {
@@ -24,9 +24,9 @@
       "software": "BugIt",
       "name": "Jarod",
       "date": "never",
-      "type": "Optimize",
+      "type": "upgrade",
       "status": "In Progress",
-      "priority": "Low",
+      "priority": "high",
       "estimatedTime": "trust"
     },
     {
@@ -36,7 +36,7 @@
       "date": "never",
       "type": "Optimize",
       "status": "In Progress",
-      "priority": "Low",
+      "priority": "low",
       "estimatedTime": "trust"
     },
     {
@@ -46,7 +46,7 @@
         "date": "never",
         "type": "Optimize",
         "status": "In Progress",
-        "priority": "Low",
+        "priority": "low",
         "estimatedTime": "trust"
     },
     {
@@ -56,7 +56,7 @@
       "date": "never",
       "type": "Optimize",
       "status": "In Progress",
-      "priority": "Low",
+      "priority": "low",
       "estimatedTime": "trust"
   },
   {
@@ -66,7 +66,7 @@
     "date": "never",
     "type": "Optimize",
     "status": "In Progress",
-    "priority": "Low",
+    "priority": "low",
     "estimatedTime": "trust"
 },
 {
@@ -76,7 +76,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -86,7 +86,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -96,7 +96,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -106,7 +106,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -116,7 +116,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -126,7 +126,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -136,7 +136,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -146,7 +146,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 },
 {
@@ -156,7 +156,7 @@
   "date": "never",
   "type": "Optimize",
   "status": "In Progress",
-  "priority": "Low",
+  "priority": "low",
   "estimatedTime": "trust"
 }
 
