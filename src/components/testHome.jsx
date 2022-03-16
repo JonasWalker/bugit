@@ -8,14 +8,16 @@ import { Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
 
 const Home = (props) => {
+  //modal stuff
   const data = require('./data.json');
   const [modalInfo, setModalInfo] = useState([]);
   const [showModal, setShowModal] = useState(false);
-
+  //modal stuff
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  //modal stuff
   const rowEvents = {
     onClick: (e, row) => {
       console.log(row);
@@ -23,39 +25,51 @@ const Home = (props) => {
       toggleTrueFalse();
     },
   };
-
+  //modal stuff
   const toggleTrueFalse = () => {
     setShowModal(handleShow);
   };
 
+  function closeModalWithOutSaving() {
+    handleClose();
+  }
+
+  function closeModalWithSaving() {
+    handleClose();
+  }
+  //modal stuff
   const priorityOptions = [
     { label: 'High', value: 'high' },
     { label: 'Moderate', value: 'moderate' },
     { label: 'Low', value: 'low' },
   ];
-
+  //modal stuff
   const typeOptions = [
     { label: 'Optimize', value: 'optimize' },
     { label: 'Crash', value: 'crash' },
     { label: 'Upgrade', value: 'upgrade' },
   ];
-
+  //modal stuff
   const statusOptions = [
     { label: 'In progress', value: 'inProgress' },
     { label: 'Stuck', value: 'stuck' },
   ];
-
+  //modal stuff
   function autoPopulatePriority(priority) {
-    console.log(priority);
     for (let i = 0; i < priorityOptions.length; i++) {
       if (priorityOptions[i].value === priority) return priorityOptions[i];
     }
   }
-
-  function autoTypeOptions(type) {
-    console.log(type);
+  //modal stuff
+  function autoPopulateTypeOptions(type) {
     for (let i = 0; i < typeOptions.length; i++) {
       if (typeOptions[i].value === type) return typeOptions[i];
+    }
+  }
+  //modal stuff
+  function autoPopulateStatusOptions(status) {
+    for (let i = 0; i < statusOptions.length; i++) {
+      if (statusOptions[i].value === status) return statusOptions[i];
     }
   }
 
@@ -88,7 +102,7 @@ const Home = (props) => {
 
   const ModalContent = () => {
     return (
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} size="lg" centered>
         <Modal.Header closeButton>
           <Modal.Title>{modalInfo.name}</Modal.Title>
         </Modal.Header>
@@ -98,7 +112,7 @@ const Home = (props) => {
               <div className="col-sm-6 mb-3 mb-sm-0">
                 <input
                   type="text"
-                  value={modalInfo.name}
+                  //value={modalInfo.name}
                   required
                   className="form-control"
                   placeholder="Owner"
@@ -118,14 +132,14 @@ const Home = (props) => {
               <div className="col-sm-6 ">
                 <Select
                   options={typeOptions}
-                  value={autoTypeOptions(modalInfo.type)}
+                  value={autoPopulateTypeOptions(modalInfo.type)}
                   placeholder="Set Type"
                 />
               </div>
               <div className="col-sm-6 ">
                 <Select
                   options={statusOptions}
-                  value={modalInfo.status}
+                  //value={autoPopulateStatusOptions(modalInfo.status)}
                   placeholder="Set status"
                 />
               </div>
@@ -134,7 +148,7 @@ const Home = (props) => {
               <div className="col-sm-6">
                 <Select
                   options={priorityOptions}
-                  value={autoPopulatePriority(modalInfo.priority)}
+                  // value={autoPopulatePriority(modalInfo.priority)}
                   placeholder="Set Priority"
                 />
               </div>
@@ -159,10 +173,10 @@ const Home = (props) => {
           </form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={closeModalWithSaving}>
             Save
           </Button>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" onClick={closeModalWithOutSaving}>
             Close
           </Button>
         </Modal.Footer>
