@@ -6,8 +6,91 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
-
+//https://www.javascripttutorial.net/javascript-fetch-api/
 const Home = (props) => {
+  const trackISS = 'https://api.wheretheiss.at/v1/satellites/25544';
+  //   console.log('test')
+  const data2 = require('./data.json');
+  //   console.log('test')
+
+  const [allBugs, setBugs] = useState('');
+
+  function getISS() {
+    fetch(trackISS)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        test(responseJson);
+      });
+  }
+
+  function test(responseJson) {
+    setBugs(responseJson);
+    console.log('allBugs', allBugs);
+  }
+
+  async function getAllBugs() {
+    //const getBugsUrl = 'https://localhost:7075/get-all-bugs';
+    var myInit = {
+      method: 'POST',
+      Headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+      cache: 'default',
+    };
+    let myRequest = new Request(trackISS, myInit);
+    fetch(myRequest)
+      .then(function (resp) {
+        return resp.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      });
+  }
+
+  // async function getAllBugs() {
+  //   const getBugsUrl = 'https://localhost:7075/get-all-bugs';
+  //   var myInit = {
+  //     method: 'POST',
+  //     Headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     mode: 'cors',
+  //     cache: 'default',
+  //   };
+  //   let myRequest = new Request(trackISS, myInit);
+  //   fetch(myRequest)
+  //     .then(function (resp) {
+  //       return resp.json();
+  //     })
+  //     .then(function (data) {
+  //       console.log(data);
+  //     });
+  //   return bugs;
+  // }
+  //   const getBugsUrl = 'https://localhost:7075/get-all-bugs'
+
+  //   var myInit = {
+  //     method: 'POST',
+  //     Headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     mode: 'cors',
+  //     cache: 'default',
+  //   }
+
+  //   let myRequest = new Request(getBugsUrl, myInit)
+
+  //   async function getAllBugs() {
+  //     fetch(myRequest)
+  //       .then(function (resp) {
+  //         return resp.json()
+  //       })
+  //       .then(function (data) {
+  //         console.log(data)
+  //       })
+  //   }
+
   //modal stuff
   const data = require('./data.json');
   const [modalInfo, setModalInfo] = useState([]);
@@ -188,48 +271,86 @@ const Home = (props) => {
 
   const columns = [
     {
+      dataField: 'altitude',
+      text: 'altitude',
+      sort: true,
+    },
+    {
+      dataField: 'daynum',
+      text: 'daynum',
+      sort: true,
+    },
+    {
+      dataField: 'footprint',
+      text: 'footprint',
+      sort: true,
+    },
+    {
       dataField: 'id',
-      text: 'ID',
+      text: 'id',
+      sort: true,
+    },
+    {
+      dataField: 'latitude',
+      text: 'latitude',
+      sort: true,
+    },
+    {
+      dataField: 'longitude',
+      text: 'longitude',
       sort: true,
     },
     {
       dataField: 'name',
-      text: 'Name',
-      sort: true,
-    },
-    {
-      dataField: 'date',
-      text: 'Date',
-      sort: true,
-    },
-    {
-      dataField: 'type',
-      text: 'Type',
-      sort: true,
-    },
-    {
-      dataField: 'status',
-      text: 'Status',
-      sort: true,
-    },
-    {
-      dataField: 'priority',
-      text: 'Priority',
-      sort: true,
-    },
-    {
-      dataField: 'estimatedTime',
-      text: 'Estimated Time',
+      text: 'name',
       sort: true,
     },
   ];
 
-  const defaultSorted = [
-    {
-      dataField: 'name',
-      order: 'desc',
-    },
-  ];
+  // const columns = [
+  //   {
+  //     dataField: 'id',
+  //     text: 'ID',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'name',
+  //     text: 'Name',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'date',
+  //     text: 'Date',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'type',
+  //     text: 'Type',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'status',
+  //     text: 'Status',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'priority',
+  //     text: 'Priority',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'estimatedTime',
+  //     text: 'Estimated Time',
+  //     sort: true,
+  //   },
+  // ];
+
+  // const defaultSorted = [
+  //   {
+  //     dataField: 'name',
+  //     order: 'desc',
+  //   },
+  // ];
 
   // const expandRow = {
   //   onlyOneExpanding: true,
@@ -265,16 +386,18 @@ const Home = (props) => {
 
   return (
     <React.Fragment>
+      <Button variant="primary" onClick={getISS}>
+        Test
+      </Button>
       <BootstrapTable
         keyField="id"
-        data={data}
+        data={data2}
         columns={columns}
         //expandRow={expandRow}
         //defaultSorted={defaultSorted}
         pagination={paginationFactory(options)}
         rowEvents={rowEvents}
       />
-
       {show ? <ModalContent /> : null}
     </React.Fragment>
   );
