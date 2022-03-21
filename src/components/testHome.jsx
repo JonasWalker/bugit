@@ -13,15 +13,23 @@ const Home = (props) => {
   const data2 = require('./data.json');
   //   console.log('test')
 
-  const [allBugs, setBugs] = useState('');
+  const [allBugs, setBugs] = useState([]);
 
-  function getISS() {
-    fetch(trackISS)
+  async function getISS() {
+    var myInit = {
+      method: 'GET',
+    };
+    let myRequest = new Request(trackISS, myInit);
+    fetch(myRequest)
       .then((response) => response.json())
-      .then((responseJson) => {
-        test(responseJson);
+      .then((bugsFromServer) => {
+        setBugs(bugsFromServer);
       });
   }
+
+  useEffect(() => {
+    getISS([]);
+  }, []);
 
   function test(responseJson) {
     setBugs(responseJson);
