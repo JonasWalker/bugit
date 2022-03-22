@@ -1,19 +1,104 @@
 //import { render } from '@testing-library/react'
-import React, { TextArea, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 //import BugItLogo from './images/BugItLogo.jpg';
 import './CSS/home.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
-import filterFactory, {
-  textFilter,
-  dateFilter,
-  selectFilter,
-} from 'react-bootstrap-table2-filter';
 
+//https://www.javascripttutorial.net/javascript-fetch-api/
 const Home = (props) => {
+  const trackISS = 'https://api.wheretheiss.at/v1/satellites/25544';
+  //   console.log('test')
   const data2 = require('./data.json');
+  //   console.log('test')
+
+  const [allBugs, setBugs] = useState([]);
+
+  // async function getISS() {
+  //   var myInit = {
+  //     method: 'GET',
+  //   };
+  //   let myRequest = new Request(trackISS, myInit);
+  //   fetch(myRequest)
+  //     .then((response) => response.json())
+  //     .then((bugsFromServer) => {
+  //       setBugs(bugsFromServer);
+  //     });
+  // }
+
+  // useEffect(() => {
+  //   getISS([]);
+  // });
+
+  // function test(responseJson) {
+  //   setBugs(responseJson);
+  //   console.log('allBugs', allBugs);
+  // }
+
+  async function getAllBugs() {
+    //const getBugsUrl = 'https://localhost:7075/get-all-bugs';
+    var myInit = {
+      method: 'POST',
+      Headers: {
+        'Content-Type': 'application/json',
+      },
+      mode: 'cors',
+      cache: 'default',
+    };
+    let myRequest = new Request(trackISS, myInit);
+    fetch(myRequest)
+      .then(function (resp) {
+        return resp.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      });
+  }
+
+  // async function getAllBugs() {
+  //   const getBugsUrl = 'https://localhost:7075/get-all-bugs';
+  //   var myInit = {
+  //     method: 'POST',
+  //     Headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     mode: 'cors',
+  //     cache: 'default',
+  //   };
+  //   let myRequest = new Request(trackISS, myInit);
+  //   fetch(myRequest)
+  //     .then(function (resp) {
+  //       return resp.json();
+  //     })
+  //     .then(function (data) {
+  //       console.log(data);
+  //     });
+  //   return bugs;
+  // }
+  //   const getBugsUrl = 'https://localhost:7075/get-all-bugs'
+
+  //   var myInit = {
+  //     method: 'POST',
+  //     Headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     mode: 'cors',
+  //     cache: 'default',
+  //   }
+
+  //   let myRequest = new Request(getBugsUrl, myInit)
+
+  //   async function getAllBugs() {
+  //     fetch(myRequest)
+  //       .then(function (resp) {
+  //         return resp.json()
+  //       })
+  //       .then(function (data) {
+  //         console.log(data)
+  //       })
+  //   }
 
   //modal stuff
   const data = require('./data.json');
@@ -27,6 +112,7 @@ const Home = (props) => {
   //modal stuff
   const rowEvents = {
     onClick: (e, row) => {
+      console.log(row);
       setModalInfo(row);
       toggleTrueFalse();
     },
@@ -63,25 +149,48 @@ const Home = (props) => {
   //modal stuff
   function autoPopulatePriority(priority) {
     for (let i = 0; i < priorityOptions.length; i++) {
-      if (priorityOptions[i].value.toLowerCase() === priority.toLowerCase())
-        console.log(priorityOptions[i]);
-      return priorityOptions[i];
+      if (priorityOptions[i].value === priority) return priorityOptions[i];
     }
   }
   //modal stuff
   function autoPopulateTypeOptions(type) {
     for (let i = 0; i < typeOptions.length; i++) {
-      if (typeOptions[i].value.toLowerCase() === type.toLowerCase())
-        return typeOptions[i];
+      if (typeOptions[i].value === type) return typeOptions[i];
     }
   }
   //modal stuff
   function autoPopulateStatusOptions(status) {
     for (let i = 0; i < statusOptions.length; i++) {
-      if (statusOptions[i].value.toLowerCase() === status.toLowerCase())
-        return statusOptions[i];
+      if (statusOptions[i].value === status) return statusOptions[i];
     }
   }
+
+  // const ModalContent = () => {
+  //   return (
+  //     <Modal show={show} onHide={handleClose}>
+  //       <Modal.Header closeButton>
+  //         <Modal.Title>{modalInfo.name}</Modal.Title>
+  //       </Modal.Header>
+  //       <Modal.Body>
+  //         <h1>Bug Info</h1>
+  //         <ul>
+  //           <ol>Bug ID: {modalInfo.id}</ol>
+  //           <ol>Creator Name: {modalInfo.name}</ol>
+  //           <ol>Date Created: {modalInfo.date}</ol>
+  //           <ol>Bug Type: {modalInfo.type}</ol>
+  //           <ol>Status: {modalInfo.status}</ol>
+  //           <ol>Priority: {modalInfo.priority}</ol>
+  //           <ol>Estimated Time: {modalInfo.estimatedTime}</ol>
+  //         </ul>
+  //       </Modal.Body>
+  //       <Modal.Footer>
+  //         <Button variant="secondary" onClick={handleClose}>
+  //           Close
+  //         </Button>
+  //       </Modal.Footer>
+  //     </Modal>
+  //   );
+  // };
 
   const ModalContent = () => {
     return (
@@ -169,74 +278,79 @@ const Home = (props) => {
     );
   };
 
-  const typeSelectOptions = {
-    0: 'Optimize',
-    1: 'Crash',
-    2: 'Upgrade',
-  };
-
-  const statusSelectOptions = {
-    0: 'In Progress',
-    1: 'Stuck',
-  };
-
-  const prioritySelectOptions = {
-    0: 'High',
-    1: 'Moderate',
-    2: 'Low',
-  };
+  // const columns = [
+  //   {
+  //     dataField: 'altitude',
+  //     text: 'altitude',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'daynum',
+  //     text: 'daynum',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'footprint',
+  //     text: 'footprint',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'id',
+  //     text: 'id',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'latitude',
+  //     text: 'latitude',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'longitude',
+  //     text: 'longitude',
+  //     sort: true,
+  //   },
+  //   {
+  //     dataField: 'name',
+  //     text: 'name',
+  //     sort: true,
+  //   },
+  // ];
 
   const columns = [
     {
       dataField: 'id',
       text: 'ID',
       sort: true,
-      filter: textFilter(),
     },
     {
       dataField: 'name',
       text: 'Name',
       sort: true,
-      filter: textFilter(),
     },
     {
       dataField: 'date',
       text: 'Date',
       sort: true,
-      filter: dateFilter(),
     },
     {
       dataField: 'type',
       text: 'Type',
       sort: true,
-      // formatter: (cell) => typeSelectOptions[cell],
-      // filter: selectFilter({
-      //   options: typeSelectOptions,
-      // }),
     },
     {
       dataField: 'status',
       text: 'Status',
       sort: true,
-      // formatter: (cell) => statusSelectOptions[cell],
-      // filter: selectFilter({
-      //   options: statusSelectOptions,
-      // }),
     },
     {
       dataField: 'priority',
       text: 'Priority',
       sort: true,
-      // formatter: (cell) => prioritySelectOptions[cell],
-      // filter: selectFilter({
-      //   options: prioritySelectOptions,
-      // }),
     },
     {
       dataField: 'estimatedTime',
       text: 'Estimated Time',
       sort: true,
-      filter: textFilter(),
     },
   ];
 
@@ -247,6 +361,21 @@ const Home = (props) => {
   //   },
   // ];
 
+  // const expandRow = {
+  //   onlyOneExpanding: true,
+  //   renderer: (row) => (
+  //     <div>
+  //       <p>{`This Expand row is belong to rowKey ${row.id}`}</p>
+  //       <p>
+  //         You can render anything here, also you can add additional data on
+  //         every row object
+  //       </p>
+  //       <p>
+  //         expandRow.renderer callback will pass the origin row object to you
+  //       </p>
+  //     </div>
+  //   ),
+  // };
   const options = {
     sizePerPageList: [
       {
@@ -275,7 +404,6 @@ const Home = (props) => {
         //defaultSorted={defaultSorted}
         pagination={paginationFactory(options)}
         rowEvents={rowEvents}
-        filter={filterFactory()}
       />
       {show ? <ModalContent /> : null}
     </React.Fragment>
