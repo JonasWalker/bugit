@@ -1,11 +1,13 @@
 //import { render } from '@testing-library/react'
 import React, { TextArea, useState, useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 //import BugItLogo from './images/BugItLogo.jpg';
 import './CSS/home.css';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
+import Form from 'react-bootstrap/Form';
 import filterFactory, {
   textFilter,
   dateFilter,
@@ -23,6 +25,15 @@ const Home = (props) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const [owner, setOwner] = useState('');
+  const [timeCreated, setDate] = useState('');
+  const [type, setType] = useState('');
+  const [status, setStatus] = useState('');
+  const [priority, setPriority] = useState('');
+  const [estimatedTime, setEstimatedTime] = useState('');
+  const [description, setBugDescription] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   //modal stuff
   const rowEvents = {
@@ -158,6 +169,9 @@ const Home = (props) => {
           </form>
         </Modal.Body>
         <Modal.Footer>
+          <Link to="/showbug">
+            <Button class="btn btn-success">Show Bug</Button>
+          </Link>
           <Button variant="primary" onClick={closeModalWithSaving}>
             Save
           </Button>
@@ -277,7 +291,107 @@ const Home = (props) => {
         rowEvents={rowEvents}
         filter={filterFactory()}
       />
-      {show ? <ModalContent /> : null}
+      {/* {show ? <ModalContent /> : null} */}
+      <div class="border-top my-3"></div>
+      <Form className="user">
+        <div className="form-group row">
+          <div className="col-sm-6 mb-3 mb-sm-0">
+            <input
+              type="text"
+              required
+              defaultValue={modalInfo.name}
+              onChange={(e) => setOwner(e.target.value)}
+              className="form-control"
+              placeholder="Owner"
+            />
+          </div>
+          <div className="col-sm-6">
+            <input
+              type="date"
+              required
+              defaultValue={modalInfo.date}
+              onChange={(e) => setDate(e.target.value)}
+              className="form-control"
+              placeholder="Todays date"
+            />
+          </div>
+        </div>
+        <div className="form-group row">
+          <div className="col-sm-6 ">
+            <input
+              type="text"
+              required
+              defaultValue={modalInfo.type}
+              //onChange={(e) => setType(e.target.value)}
+              className="form-control"
+              placeholder="Set Type"
+            />
+
+            {/* <Select
+                       options={this.state.typeOptions} 
+                       onChange = {setStatus(this.handleChange.bind(this))}
+                       placeholder = 'Set Type' 
+                       />     */}
+          </div>
+          <div className="col-sm-6 ">
+            <input
+              type="text"
+              required
+              defaultValue={modalInfo.status}
+              //onChange={(e) => setStatus(e.target.value)}
+              className="form-control"
+              placeholder="Set Status"
+            />
+            {/*<Select
+                       options={statusOptions} 
+                       onChange = {setStatus}
+                       placeholder = 'Set status'
+                       />  */}
+          </div>
+        </div>
+        <div className="form-group row">
+          <div className="col-sm-6">
+            <input
+              type="text"
+              required
+              defaultValue={modalInfo.priority}
+              //onChange={(e) => setPriority(e.target.value)}
+              className="form-control"
+              placeholder="Set Priority"
+            />
+
+            {/*<Select
+                       options={priorityOptions} 
+                       onChange = {setPriority}
+                       placeholder = 'Set Priority'                      
+                       /> */}
+          </div>
+          <div className="col-sm-6">
+            <input
+              type="text"
+              required
+              defaultValue={modalInfo.estimatedTime}
+              //onChange={(e) => setEstimatedTime(e.target.value)}
+              className="form-control"
+              placeholder="Estimated Time"
+            />
+          </div>
+          <div className="col-sm-12">
+            <input
+              type="text"
+              required
+              //onChange={(e) => setBugDescription(e.target.value)}
+              className="form-control text-center"
+              placeholder="Bug description"
+            />
+          </div>
+        </div>
+        <div className="row justify-content-center">
+          <button className="text-center btn btn-md btn-primary" type="submit">
+            Create Bug
+          </button>
+        </div>
+      </Form>
     </React.Fragment>
   );
 };

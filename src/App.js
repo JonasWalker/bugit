@@ -10,6 +10,7 @@ import { Component } from 'react'
 import { Login } from './components/Login'
 import { CreateAccount } from './components/CreateAccount'
 import NewCreateAccount from './components/NewCreateAccount'
+import ShowBug from './components/ShowBug'
 import { Account } from './components/Account'
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
         <Route path='newCreateAccount' element={<NewCreateAccount />} />
         <Route path='/' element={<Sidebar />}>
           <Route index element={<TestHome />} />
+          <Route path='showBug' element={<ShowBug />} />
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />
           <Route path='account' element={<Account />} />
