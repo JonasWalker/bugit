@@ -280,7 +280,9 @@ const Home = (props) => {
 
   return (
     <React.Fragment>
-      <Button variant="primary">Test</Button>
+      <Link to="/ShowBug" params={{ testvalue: 'hello' }}>
+        <Button class="btn btn-success">Test</Button>
+      </Link>
       <BootstrapTable
         keyField="id"
         data={data2}
