@@ -8,6 +8,8 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
 import Form from 'react-bootstrap/Form';
+//import ShowBug from './components/ShowBug';
+
 import filterFactory, {
   textFilter,
   dateFilter,
@@ -28,12 +30,6 @@ const Home = (props) => {
 
   const [owner, setOwner] = useState('');
   const [timeCreated, setDate] = useState('');
-  const [type, setType] = useState('');
-  const [status, setStatus] = useState('');
-  const [priority, setPriority] = useState('');
-  const [estimatedTime, setEstimatedTime] = useState('');
-  const [description, setBugDescription] = useState('');
-  const [redirect, setRedirect] = useState(false);
 
   //modal stuff
   const rowEvents = {
@@ -278,11 +274,13 @@ const Home = (props) => {
     ], // A numeric array is also available. the purpose of above example is custom the text
   };
 
+  function tempTest() {
+    let showBug = new ShowBug();
+  }
+
   return (
     <React.Fragment>
-      <Link to="/ShowBug" params={{ testvalue: 'hello' }}>
-        <Button class="btn btn-success">Test</Button>
-      </Link>
+      <Button class="btn btn-success">Test</Button>
       <BootstrapTable
         keyField="id"
         data={data2}
