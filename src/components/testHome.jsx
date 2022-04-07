@@ -8,7 +8,7 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import { Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
 import Form from 'react-bootstrap/Form';
-//import ShowBug from './components/ShowBug';
+import ShowBug from './ShowBug';
 
 import filterFactory, {
   textFilter,
@@ -276,11 +276,19 @@ const Home = (props) => {
 
   function tempTest() {
     let showBug = new ShowBug();
+    <Link to="/ShowBug" />;
   }
 
   return (
     <React.Fragment>
-      <Button class="btn btn-success">Test</Button>
+      <Button
+        className="text-center btn btn-md btn-primary"
+        type="button"
+        onClick={tempTest}
+      >
+        Click Me!
+      </Button>
+
       <BootstrapTable
         keyField="id"
         data={data2}
