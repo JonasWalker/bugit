@@ -2,43 +2,19 @@
 import React, { Component, TextArea, useState, useEffect, Link } from 'react';
 import BugItLogo from './images/BugItLogo.jpg';
 import './CSS/CreateAccount.css';
-import { useLocation } from 'react-router-dom';
 
+// var pathname = window.location.pathname;
+// console.log(pathname);
+// pathname = pathname.substring(9);
+// console.log(pathname)
 
-function Profile() {
-  const location = useLocation();
-  const from = location.state;
-  return from;
-}
+const ShowBug = (props) => {
+  //set bugIDToSearch to the URL location
+  var bugIDToSearch = window.location.pathname;
+  //set bugIDToSearch to the bug ID       deletes "/showbug/"
+  bugIDToSearch = bugIDToSearch.substring(9);
 
-class Showbug extends Component {
-  constructor(props) {
-    // Calling super class constructor
-    super(props);
+  return <h3>{bugIDToSearch}</h3>;
+};
 
-    // Creating state
-    this.state = {
-      data: 'My name is User',
-    };
-
-    // Binding event handler
-    this.handleEvent = this.handleEvent.bind(this);
-  }
-
-
-  handleEvent() {
-    console.log(this.props);
-  }
-
-  render() {
-    return (
-      <div>
-        <input type="text" value={this.state.data} />
-        <br></br> <br></br>
-        <button onClick={this.handleEvent}>Please Click</button>
-      </div>
-    );
-  }
-}
-
-export default Showbug;
+export default ShowBug;

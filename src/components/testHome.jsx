@@ -1,6 +1,13 @@
 //import { render } from '@testing-library/react'
 import React, { TextArea, useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  Redirect,
+  Navigate,
+} from 'react-router-dom';
 //import BugItLogo from './images/BugItLogo.jpg';
 import './CSS/home.css';
 import BootstrapTable from 'react-bootstrap-table-next';
@@ -9,6 +16,7 @@ import { Modal, Button } from 'react-bootstrap';
 import Select from 'react-select';
 import Form from 'react-bootstrap/Form';
 import ShowBug from './ShowBug';
+import { generatePath } from 'react-router';
 
 import filterFactory, {
   textFilter,
@@ -43,6 +51,7 @@ const Home = (props) => {
     setShowModal(handleShow);
   };
   // modal stuff
+
   // function closeModalWithOutSaving() {
   //   handleClose();
   // }
@@ -196,6 +205,21 @@ const Home = (props) => {
   //   2: 'Low',
   // };
 
+  // function CreatePath(bugId) {
+  //   console.log('inside CreatePath');
+  //   var bugIdToSend = generatePath('/showBug/:id', {
+  //     id: bugId,
+  //   });
+
+  //   console.log(bugIdToSend);
+
+  //   //<Link to={bugIdToSend} />;
+  //   //<Redirect to={bugIdToSend} />;
+  //   <Navigate to={bugIdToSend} />;
+  //   console.log(bugIdToSend);
+  //   console.log('Leaving createpath');
+  // }
+
   const columns = [
     {
       dataField: 'id',
@@ -252,7 +276,7 @@ const Home = (props) => {
       text: 'Modify',
       formatter: (cell, row, rowIndex, extraData) => (
         <div>
-          <Link to="/showBug" params={temp}>
+          <Link to={'/showBug/' + row.id}>
             <Button
               className="text-center btn btn-sm btn-primary"
               type="button"
@@ -317,7 +341,7 @@ const Home = (props) => {
         filter={filterFactory()}
       />
       {/* {show ? <ModalContent /> : null} */}
-      <div class="border-top my-3"></div>
+      <div className="border-top my-3"></div>
       <Form className="user">
         <div className="form-group row">
           <div className="col-sm-6 mb-3 mb-sm-0">

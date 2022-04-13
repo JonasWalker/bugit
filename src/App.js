@@ -22,7 +22,7 @@ export default function App() {
         <Route path='newCreateAccount' element={<NewCreateAccount />} />
         <Route path='/' element={<Sidebar />}>
           <Route index element={<TestHome />} />
-          <Route path='showBug' element={<ShowBug />} />
+          <Route path='showBug/:id' element={<ShowBug />} />
           <Route path='about' element={<About />} />
           <Route path='contact' element={<Contact />} />
           <Route path='account' element={<Account />} />
