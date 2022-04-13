@@ -38,6 +38,10 @@ body {
   --bs-table-striped-bg: #4abdac83; striped color
  
 } */
+.btn-primary{
+  border-color: #ffffff;
+  width: 100px
+}
 
 .col-sm-6 {
   margin-bottom: 15px;

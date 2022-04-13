@@ -18,7 +18,7 @@ import filterFactory, {
 
 const Home = (props) => {
   const data2 = require('./data.json');
-
+  var temp = 2;
   //modal stuff
   const data = require('./data.json');
   const [modalInfo, setModalInfo] = useState([]);
@@ -42,159 +42,159 @@ const Home = (props) => {
   const toggleTrueFalse = () => {
     setShowModal(handleShow);
   };
+  // modal stuff
+  // function closeModalWithOutSaving() {
+  //   handleClose();
+  // }
 
-  function closeModalWithOutSaving() {
-    handleClose();
-  }
+  // function closeModalWithSaving() {
+  //   handleClose();
+  // }
+  // //modal stuff
+  // const priorityOptions = [
+  //   { label: 'High', value: 'high' },
+  //   { label: 'Moderate', value: 'moderate' },
+  //   { label: 'Low', value: 'low' },
+  // ];
+  // //modal stuff
+  // const typeOptions = [
+  //   { label: 'Optimize', value: 'optimize' },
+  //   { label: 'Crash', value: 'crash' },
+  //   { label: 'Upgrade', value: 'upgrade' },
+  // ];
+  // //modal stuff
+  // const statusOptions = [
+  //   { label: 'In progress', value: 'inProgress' },
+  //   { label: 'Stuck', value: 'stuck' },
+  // ];
+  // //modal stuff
+  // function autoPopulatePriority(priority) {
+  //   for (let i = 0; i < priorityOptions.length; i++) {
+  //     if (priorityOptions[i].value.toLowerCase() === priority.toLowerCase())
+  //       console.log(priorityOptions[i]);
+  //     return priorityOptions[i];
+  //   }
+  // }
+  // //modal stuff
+  // function autoPopulateTypeOptions(type) {
+  //   for (let i = 0; i < typeOptions.length; i++) {
+  //     if (typeOptions[i].value.toLowerCase() === type.toLowerCase())
+  //       return typeOptions[i];
+  //   }
+  // }
+  // //modal stuff
+  // function autoPopulateStatusOptions(status) {
+  //   for (let i = 0; i < statusOptions.length; i++) {
+  //     if (statusOptions[i].value.toLowerCase() === status.toLowerCase())
+  //       return statusOptions[i];
+  //   }
+  // }
 
-  function closeModalWithSaving() {
-    handleClose();
-  }
-  //modal stuff
-  const priorityOptions = [
-    { label: 'High', value: 'high' },
-    { label: 'Moderate', value: 'moderate' },
-    { label: 'Low', value: 'low' },
-  ];
-  //modal stuff
-  const typeOptions = [
-    { label: 'Optimize', value: 'optimize' },
-    { label: 'Crash', value: 'crash' },
-    { label: 'Upgrade', value: 'upgrade' },
-  ];
-  //modal stuff
-  const statusOptions = [
-    { label: 'In progress', value: 'inProgress' },
-    { label: 'Stuck', value: 'stuck' },
-  ];
-  //modal stuff
-  function autoPopulatePriority(priority) {
-    for (let i = 0; i < priorityOptions.length; i++) {
-      if (priorityOptions[i].value.toLowerCase() === priority.toLowerCase())
-        console.log(priorityOptions[i]);
-      return priorityOptions[i];
-    }
-  }
-  //modal stuff
-  function autoPopulateTypeOptions(type) {
-    for (let i = 0; i < typeOptions.length; i++) {
-      if (typeOptions[i].value.toLowerCase() === type.toLowerCase())
-        return typeOptions[i];
-    }
-  }
-  //modal stuff
-  function autoPopulateStatusOptions(status) {
-    for (let i = 0; i < statusOptions.length; i++) {
-      if (statusOptions[i].value.toLowerCase() === status.toLowerCase())
-        return statusOptions[i];
-    }
-  }
+  // const ModalContent = () => {
+  //   return (
+  //     <Modal show={show} onHide={handleClose} size="lg" centered>
+  //       <Modal.Header closeButton>
+  //         <Modal.Title>{modalInfo.name}</Modal.Title>
+  //       </Modal.Header>
+  //       <Modal.Body>
+  //         <form className="user">
+  //           <div className="form-group row">
+  //             <div className="col-sm-6 mb-3 mb-sm-0">
+  //               <input
+  //                 id="ownerField"
+  //                 type="text"
+  //                 defaultValue={modalInfo.name}
+  //                 required
+  //                 className="form-control"
+  //                 placeholder="Owner"
+  //               />
+  //             </div>
+  //             <div className="col-sm-6">
+  //               <input
+  //                 type="date"
+  //                 defaultValue={modalInfo.date}
+  //                 required
+  //                 className="form-control"
+  //                 placeholder="Todays date"
+  //               />
+  //             </div>
+  //           </div>
+  //           <div className="form-group row">
+  //             <div className="col-sm-6 ">
+  //               <Select
+  //                 options={typeOptions}
+  //                 defaultValue={autoPopulateTypeOptions(modalInfo.type)}
+  //                 placeholder="Set Type"
+  //               />
+  //             </div>
+  //             <div className="col-sm-6 ">
+  //               <Select
+  //                 options={statusOptions}
+  //                 defaultValue={autoPopulateStatusOptions(modalInfo.status)}
+  //                 placeholder="Set status"
+  //               />
+  //             </div>
+  //           </div>
+  //           <div className="form-group row">
+  //             <div className="col-sm-6">
+  //               <Select
+  //                 options={priorityOptions}
+  //                 defaultValue={autoPopulatePriority(modalInfo.priority)}
+  //                 placeholder="Set Priority"
+  //               />
+  //             </div>
+  //             <div className="col-sm-6">
+  //               <input
+  //                 type="text"
+  //                 defaultValue={modalInfo.estimatedTime}
+  //                 required
+  //                 className="form-control"
+  //                 placeholder="Estimated Time"
+  //               />
+  //             </div>
+  //             <div className="col-sm-12">
+  //               <textArea
+  //                 type="text"
+  //                 required
+  //                 className="form-control text-center"
+  //                 placeholder="Bug description"
+  //                 rows={3}
+  //               />
+  //             </div>
+  //           </div>
+  //         </form>
+  //       </Modal.Body>
+  //       <Modal.Footer>
+  //         <Link to="/showbug">
+  //           <Button class="btn btn-success">Show Bug</Button>
+  //         </Link>
+  //         <Button variant="primary" onClick={closeModalWithSaving}>
+  //           Save
+  //         </Button>
+  //         <Button variant="secondary" onClick={closeModalWithOutSaving}>
+  //           Close
+  //         </Button>
+  //       </Modal.Footer>
+  //     </Modal>
+  //   );
+  // };
 
-  const ModalContent = () => {
-    return (
-      <Modal show={show} onHide={handleClose} size="lg" centered>
-        <Modal.Header closeButton>
-          <Modal.Title>{modalInfo.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form className="user">
-            <div className="form-group row">
-              <div className="col-sm-6 mb-3 mb-sm-0">
-                <input
-                  id="ownerField"
-                  type="text"
-                  defaultValue={modalInfo.name}
-                  required
-                  className="form-control"
-                  placeholder="Owner"
-                />
-              </div>
-              <div className="col-sm-6">
-                <input
-                  type="date"
-                  defaultValue={modalInfo.date}
-                  required
-                  className="form-control"
-                  placeholder="Todays date"
-                />
-              </div>
-            </div>
-            <div className="form-group row">
-              <div className="col-sm-6 ">
-                <Select
-                  options={typeOptions}
-                  defaultValue={autoPopulateTypeOptions(modalInfo.type)}
-                  placeholder="Set Type"
-                />
-              </div>
-              <div className="col-sm-6 ">
-                <Select
-                  options={statusOptions}
-                  defaultValue={autoPopulateStatusOptions(modalInfo.status)}
-                  placeholder="Set status"
-                />
-              </div>
-            </div>
-            <div className="form-group row">
-              <div className="col-sm-6">
-                <Select
-                  options={priorityOptions}
-                  defaultValue={autoPopulatePriority(modalInfo.priority)}
-                  placeholder="Set Priority"
-                />
-              </div>
-              <div className="col-sm-6">
-                <input
-                  type="text"
-                  defaultValue={modalInfo.estimatedTime}
-                  required
-                  className="form-control"
-                  placeholder="Estimated Time"
-                />
-              </div>
-              <div className="col-sm-12">
-                <textArea
-                  type="text"
-                  required
-                  className="form-control text-center"
-                  placeholder="Bug description"
-                  rows={3}
-                />
-              </div>
-            </div>
-          </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Link to="/showbug">
-            <Button class="btn btn-success">Show Bug</Button>
-          </Link>
-          <Button variant="primary" onClick={closeModalWithSaving}>
-            Save
-          </Button>
-          <Button variant="secondary" onClick={closeModalWithOutSaving}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  };
+  // const typeSelectOptions = {
+  //   0: 'Optimize',
+  //   1: 'Crash',
+  //   2: 'Upgrade',
+  // };
 
-  const typeSelectOptions = {
-    0: 'Optimize',
-    1: 'Crash',
-    2: 'Upgrade',
-  };
+  // const statusSelectOptions = {
+  //   0: 'In Progress',
+  //   1: 'Stuck',
+  // };
 
-  const statusSelectOptions = {
-    0: 'In Progress',
-    1: 'Stuck',
-  };
-
-  const prioritySelectOptions = {
-    0: 'High',
-    1: 'Moderate',
-    2: 'Low',
-  };
+  // const prioritySelectOptions = {
+  //   0: 'High',
+  //   1: 'Moderate',
+  //   2: 'Low',
+  // };
 
   const columns = [
     {
@@ -248,6 +248,27 @@ const Home = (props) => {
       sort: true,
       filter: textFilter(),
     },
+    {
+      text: 'Modify',
+      formatter: (cell, row, rowIndex, extraData) => (
+        <div>
+          <Link to="/showBug" params={temp}>
+            <Button
+              className="text-center btn btn-sm btn-primary"
+              type="button"
+            >
+              Update
+            </Button>
+          </Link>
+          <Button className="text-center btn btn-sm btn-primary" type="button">
+            Delete
+          </Button>
+          <Button className="text-center btn btn-sm btn-primary" type="button">
+            Archive
+          </Button>
+        </div>
+      ),
+    },
   ];
 
   // const defaultSorted = [
@@ -274,18 +295,14 @@ const Home = (props) => {
     ], // A numeric array is also available. the purpose of above example is custom the text
   };
 
-  function tempTest() {
-    let showBug = new ShowBug();
-    <Link to="/ShowBug" />;
-  }
+  // function tempTest() {
+  //   let showBug = new ShowBug();
+  //   <Link to="/ShowBug" />;
+  // }
 
   return (
     <React.Fragment>
-      <Button
-        className="text-center btn btn-md btn-primary"
-        type="button"
-        onClick={tempTest}
-      >
+      <Button className="text-center btn btn-md btn-primary" type="button">
         Click Me!
       </Button>
 
